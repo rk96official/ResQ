@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "77831454203",
+    "firebase_url": "https://resq-8bc77.firebaseio.com",
+    "project_id": "resq-8bc77",
+    "storage_bucket": "resq-8bc77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77831454203:android:ed9b6df655b49baee91f5e",
+        "android_client_info": {
+          "package_name": "com.resq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "77831454203-8449ugjdr0p4jfhanba85pbajf63dt0m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjz1VuKzNULu2IBuG-Q51-d6NGULSmtAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "77831454203-8449ugjdr0p4jfhanba85pbajf63dt0m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "77831454203-151ivj831v74fphcgsme0909d07tca8s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.resQ"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
