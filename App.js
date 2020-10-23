@@ -1,61 +1,99 @@
-import 'react-native-gesture-handler';
-import React, { useEffect, useState } from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-import { LoginScreen, HomeScreen, RegistrationScreen } from './src/screens'
-import {decode, encode} from 'base-64'
-import { firebase } from './src/firebase/config'
 
-if (!global.btoa) {  global.btoa = encode }
-if (!global.atob) { global.atob = decode }
+ import {createSwitchNavigator} from 'react-navigation'
+ import {createDrawerNavigator, DrawerNavigatorItems} from 'react-navigation-drawer'
+ import {Dimensions} from 'react-native'
+ import {Feather} from '@expo/vector-icons'
+ import Sidebar from './src/screens/Components/Sidebar'
+ import Home from './src/screens/HomeScreen/HomeScreen'
+ import React from 'react'
+ import { SafeAreaView, StyleSheet } from 'react-native'
+ import { createAppContainer, createStackNavigator } from 'react-navigation'
+ import Login from './src/screens/LoginScreen/LoginScreen'
+ import Profile from './src/screens/Profile/Profile'
+ import Groups from './src/screens/Groups/Groups'
+ import SignOut from './src/screens/SignOut/SignOut'
+ import SignUp from './src/screens/RegistrationScreen/RegistrationScreen'
+ import AuthLoading from './src/screens/Loading'
 
-const Stack = createStackNavigator();
 
-export default function App() {
+const DrawerNavigator = createDrawerNavigator({
+  Home:{
+      screen: Home,
+      navigationOptions:{
+        title: "Home",
+        drawerIcon: ({tintColor}) => <Feather name="home" size={16} color={tintColor} />
+    }
+  },
+  Profile:{
+    screen: Profile,
+    navigationOptions:{
+      title: "Profile",
+      drawerIcon: ({tintColor}) => <Feather name="user" size={16} color={tintColor} />
+    }
+  },
+  Groups:{
+    screen: Groups,
+    navigationOptions:{
+      title: "My Groups",
+      drawerIcon: ({tintColor}) => <Feather name="list" size={16} color={tintColor} />
+    }
+  },
+  SignOut:{
+    screen: SignOut,
+    navigationOptions:{
+      title: "Sign Out",
+      drawerIcon: ({tintColor}) => <Feather name="log-out" size={16} color={tintColor} />
+    }
+  },
+  },{
+    contentComponent: props => <Sidebar {...props} />,
+    drawerWidth: Dimensions.get("window").width * 0.85,
+    hideStatusBar: true,
 
-  const [loading, setLoading] = useState(true)
-  const [user, setUser] = useState(null)
-
-  useEffect(() => {
-    const usersRef = firebase.firestore().collection('users');
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        usersRef
-          .doc(user.uid)
-          .get()
-          .then((document) => {
-            const userData = document.data()
-            setLoading(false)
-            setUser(userData)
-          })
-          .catch((error) => {
-            setLoading(false)
-          });
-      } else {
-        setLoading(false)
+    contentOptions:{
+      activeBackgroundColor: "rgba(212,118,207,0.2)",
+      activeTintColor: "#53115B",
+      itemsContainerStyle:{
+        marginTop: 16,
+        marginHorizontal: 8
+      },
+      itemStyle: {
+        borderRadius: 4
       }
-    });
-  }, []);
+    }
+},{
+  initialRouteName: 'Home'
+});
 
-  if (loading) {	
-    return (	
-      <></>	
-    )	
+
+const switchNavigator = createSwitchNavigator(
+  {
+    AuthLoading,
+    Login,
+    SignUp,
+    DrawerNavigator,
+  },
+  {
+    initialRouteName: 'AuthLoading',
+  },
+)
+
+const AppNavigator = createAppContainer(switchNavigator)
+
+class App extends React.Component {
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <AppNavigator />
+      </SafeAreaView>
+    )
   }
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        { user ? (
-          <Stack.Screen name="Home">
-            {props => <HomeScreen {...props} extraData={user} />}
-          </Stack.Screen>
-        ) : (
-          <>
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Registration" component={RegistrationScreen} />
-          </>
-        )}
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+})
+
+export default App

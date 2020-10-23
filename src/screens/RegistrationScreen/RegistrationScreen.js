@@ -3,11 +3,24 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 import { firebase } from '../../firebase/config'
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+
+var radio_props = [
+    {label: 'Flooding', value: 0 },
+    {label: 'Fire', value: 1 },
+    {label: 'Accidents', value: 2 },
+    {label: 'Landslide', value: 3 },
+    {label: 'Earthquake', value: 4 },
+    {label: 'Volcano', value: 5 },
+    {label: 'Hurricane', value: 6 }
+  ];
 
 export default function RegistrationScreen({navigation}) {
     const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [age, setAge] = useState('')
+    const [group, setGroup] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
 
     const onFooterLinkPress = () => {
@@ -28,6 +41,8 @@ export default function RegistrationScreen({navigation}) {
                     id: uid,
                     email,
                     fullName,
+                    age,
+                    group
                 };
                 const usersRef = firebase.firestore().collection('users')
                 usersRef
@@ -52,7 +67,7 @@ export default function RegistrationScreen({navigation}) {
                 keyboardShouldPersistTaps="always">
                 <Image
                     style={styles.logo}
-                    source={require('../../../assets/icon.png')}
+                    source={require('../../../assets/favicon.png')}
                 />
                 <TextInput
                     style={styles.input}
@@ -63,6 +78,24 @@ export default function RegistrationScreen({navigation}) {
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
+                <TextInput
+                    style={styles.input}
+                    placeholderTextColor="#aaaaaa"
+                    secureTextEntry
+                    placeholder='Age'
+                    onChangeText={(text) => setAge(text)}
+                    value={age}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <View style={styles.footerView}>
+                    <Text style={styles.footerText}>Choose a voluntary group </Text>
+                </View>
+                <RadioForm
+                    radio_props={radio_props}
+                    initial={0}
+                    onPress={(value) => {setGroup({value:value})}}
+                 />
                 <TextInput
                     style={styles.input}
                     placeholder='E-mail'
