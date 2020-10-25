@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet,Text, TouchableOpacity, View } from 'react-native'
+import {firebase} from '../../firebase/config'
 
+async function  signout() {
+    try {
+        await firebase.auth().signOut();
+        this.props.navigation.navigate('AuthLoading');
+    } catch (e) {
+        console.log(e);
+    }
+}
 class  SignOut extends React.Component{
 
     render(){
@@ -12,6 +21,12 @@ class  SignOut extends React.Component{
                 style={styles.signoutButton}
                 onPress={() => this.props.navigation.openDrawer()}>
                 <Text>Open Drawer</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+                style={styles.signoutButton}
+                onPress={() => signout()}>
+                <Text>Sign Out</Text>
             </TouchableOpacity>
       </View>
         )

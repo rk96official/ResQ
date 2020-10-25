@@ -7,11 +7,13 @@
  import Home from './src/screens/HomeScreen/HomeScreen'
  import React from 'react'
  import { SafeAreaView, StyleSheet } from 'react-native'
- import { createAppContainer, createStackNavigator } from 'react-navigation'
+ import { createAppContainer} from 'react-navigation'
+ import {createStackNavigator} from 'react-navigation-stack'
  import Login from './src/screens/LoginScreen/LoginScreen'
  import Profile from './src/screens/Profile/Profile'
  import Groups from './src/screens/Groups/Groups'
  import SignOut from './src/screens/SignOut/SignOut'
+ import Rescue from './src/screens/RescueScreen/RescueScreen'
  import SignUp from './src/screens/RegistrationScreen/RegistrationScreen'
  import AuthLoading from './src/screens/Loading'
 
@@ -71,6 +73,7 @@ const switchNavigator = createSwitchNavigator(
     AuthLoading,
     Login,
     SignUp,
+    Rescue,
     DrawerNavigator,
   },
   {
