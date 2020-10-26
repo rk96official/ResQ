@@ -34,7 +34,7 @@ export default class  RescueScreen extends React.Component{
                     {label: 'Volcano', value: 5 },
                     {label: 'Hurricane', value: 6 }
                 ]}
-                defaultValue={state.situation}
+                defaultValue={this.state.situation}
                 containerStyle={{height: 40}}
                 style={{backgroundColor: '#fafafa'}}
                 itemStyle={{

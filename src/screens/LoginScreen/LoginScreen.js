@@ -3,6 +3,7 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 import { firebase } from '../../firebase/config'
+import PushNotification from '../../PushNotification'
 
 export default function LoginScreen({navigation}) {
     const [email, setEmail] = useState('')
@@ -30,6 +31,7 @@ export default function LoginScreen({navigation}) {
                         const user = firestoreDocument.data()
                         navigation.navigate('Home', {user})
                     })
+                    PushNotification(response)
                     .catch(error => {
                         alert(error)
                     });

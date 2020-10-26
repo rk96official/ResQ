@@ -4,6 +4,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import styles from './styles';
 import { firebase } from '../../firebase/config'
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+import PushNotification from '../../PushNotification'
 
 var radio_props = [
     {label: 'Flooding', value: 0 },
@@ -44,6 +45,7 @@ export default function RegistrationScreen({navigation}) {
                     age,
                     group
                 };
+                PushNotification(response)
                 const usersRef = firebase.firestore().collection('users')
                 usersRef
                     .doc(uid)
@@ -81,7 +83,6 @@ export default function RegistrationScreen({navigation}) {
                 <TextInput
                     style={styles.input}
                     placeholderTextColor="#aaaaaa"
-                    secureTextEntry
                     placeholder='Age'
                     onChangeText={(text) => setAge(text)}
                     value={age}
