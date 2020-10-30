@@ -4,14 +4,17 @@ import {DrawerNavigatorItems} from "react-navigation-drawer";
 import styles from "./styles"
 import {firebase} from '../../firebase/config'
 
-const user = firebase.auth().currentUser
-const uid = user.uid
 var name=""
 var res = ""
-const userref= firebase.firestore().collection('users').doc(uid).onSnapshot(doc => {
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+         const id = user.uid 
+         firebase.firestore().collection('users').doc(id).onSnapshot(doc => {
             name= doc.data().fullName 
             var x = name.split(' ')
             res = x[0].charAt(0) + x[1].charAt(0)
+        })
+    }
 })
 
 

@@ -8,6 +8,7 @@ class  Profile extends React.Component{
             fullName: "",
             age: "",
             email: "",
+            groups: ""
         }
     }
 
@@ -20,6 +21,7 @@ class  Profile extends React.Component{
                         fullName: doc.data().fullName,
                         age: doc.data().age,
                         email: doc.data().email,
+                        groups: doc.data().group
                     }
                 })
         });
@@ -38,6 +40,7 @@ class  Profile extends React.Component{
                             <Text style={styles.input}> Name: {this.state.user.fullName}</Text>
                             <Text style={styles.input}> Age: {this.state.user.age}</Text>
                             <Text style={styles.input}> Email: {this.state.user.email}</Text>
+                            <Text style={styles.input}> Groups: {this.state.user.groups}</Text>
                     </View>
                 </View>
             

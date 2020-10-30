@@ -28,9 +28,9 @@ export default function RegistrationScreen({navigation}) {
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .then((response) => {
-                const uid = response.user.uid
+                const id = response.user.uid
                 const data = {
-                    id: uid,
+                    id: id,
                     email,
                     fullName,
                     age,
@@ -39,7 +39,7 @@ export default function RegistrationScreen({navigation}) {
                 PushNotification(response)
                 const usersRef = firebase.firestore().collection('users')
                 usersRef
-                    .doc(uid)
+                    .doc(id)
                     .set(data)
                     .then(() => {
                         navigation.navigate('Home', {user: data})

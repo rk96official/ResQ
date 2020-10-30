@@ -11,7 +11,6 @@
  import {createStackNavigator} from 'react-navigation-stack'
  import Login from './src/screens/LoginScreen/LoginScreen'
  import Profile from './src/screens/Profile/Profile'
- import Groups from './src/screens/Groups/Groups'
  import SignOut from './src/screens/SignOut/SignOut'
  import Rescue from './src/screens/RescueScreen/RescueScreen'
  import SignUp from './src/screens/RegistrationScreen/RegistrationScreen'
@@ -31,13 +30,6 @@ const DrawerNavigator = createDrawerNavigator({
     navigationOptions:{
       title: "Profile",
       drawerIcon: ({tintColor}) => <Feather name="user" size={16} color={tintColor} />
-    }
-  },
-  Groups:{
-    screen: Groups,
-    navigationOptions:{
-      title: "My Groups",
-      drawerIcon: ({tintColor}) => <Feather name="list" size={16} color={tintColor} />
     }
   },
   SignOut:{
