@@ -41,7 +41,7 @@ const DrawerNavigator = createDrawerNavigator({
     }
   },
   SignOut:{
-    screen: SignOut,
+     screen: SignOut,
     navigationOptions:{
       title: "Sign Out",
       drawerIcon: ({tintColor}) => <Feather name="log-out" size={16} color={tintColor} />

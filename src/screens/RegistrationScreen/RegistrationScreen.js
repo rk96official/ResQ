@@ -5,16 +5,7 @@ import styles from './styles';
 import { firebase } from '../../firebase/config'
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import PushNotification from '../../PushNotification'
-
-var radio_props = [
-    {label: 'Flooding', value: 0 },
-    {label: 'Fire', value: 1 },
-    {label: 'Accidents', value: 2 },
-    {label: 'Landslide', value: 3 },
-    {label: 'Earthquake', value: 4 },
-    {label: 'Volcano', value: 5 },
-    {label: 'Hurricane', value: 6 }
-  ];
+import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function RegistrationScreen({navigation}) {
     const [fullName, setFullName] = useState('')
@@ -68,8 +59,8 @@ export default function RegistrationScreen({navigation}) {
                 style={{ flex: 1, width: '100%' }}
                 keyboardShouldPersistTaps="always">
                 <Image
-                    style={styles.logo}
-                    source={require('../../../assets/favicon.png')}
+                    style={styles.profile}
+                    source={require('../../../assets/icon.png')}
                 />
                 <TextInput
                     style={styles.input}
@@ -89,14 +80,25 @@ export default function RegistrationScreen({navigation}) {
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
-                <View style={styles.footerView}>
-                    <Text style={styles.footerText}>Choose a voluntary group </Text>
-                </View>
-                <RadioForm
-                    radio_props={radio_props}
-                    initial={0}
-                    onPress={(value) => {setGroup({value:value})}}
-                 />
+                <DropDownPicker
+                    items={[
+                        {label: 'Flooding', value: 0 },
+                        {label: 'Fire', value: 1 },
+                        {label: 'Accidents', value: 2 },
+                        {label: 'Landslide', value: 3 },
+                        {label: 'Earthquake', value: 4 },
+                        {label: 'Volcano', value: 5 },
+                        {label: 'Hurricane', value: 6 }
+                    ]}
+                    placeholder="Select a voluntary group"
+                    containerStyle={{height: 40, width: 250}}
+                    style={{backgroundColor: 'lightgrey', marginLeft: 30}}
+                    itemStyle={{
+                        justifyContent: 'flex-start'
+                    }}
+                    dropDownStyle={{backgroundColor: '#fafafa'}}
+                    onChangeItem={item => setGroup(item.label)}
+                />
                 <TextInput
                     style={styles.input}
                     placeholder='E-mail'

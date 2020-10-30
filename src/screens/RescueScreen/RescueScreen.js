@@ -21,9 +21,8 @@ export default class  RescueScreen extends React.Component{
     render(){
         return (
         <View style={styles.container}>
-            <Text>Rescue Screen</Text>
-             <View style={styles.container}>
-                    <Text style={styles.footerText}>Choose a voluntary group </Text>
+            <Text style={styles.title}>Rescue Screen</Text>
+             <View style={styles.rescue}>
             <DropDownPicker 
                 items={[
                     {label: 'Flooding', value: 0 },
@@ -34,19 +33,20 @@ export default class  RescueScreen extends React.Component{
                     {label: 'Volcano', value: 5 },
                     {label: 'Hurricane', value: 6 }
                 ]}
-                defaultValue={this.state.situation}
-                containerStyle={{height: 40}}
+                defaultNull={this.state.situation === null}
+                placeholder="Select a voluntary group"
+                containerStyle={{height: 50, width: 200}}
                 style={{backgroundColor: '#fafafa'}}
                 itemStyle={{
                     justifyContent: 'flex-start'
                 }}
                 dropDownStyle={{backgroundColor: '#fafafa'}}
                 onChangeItem={item => this.setState({
-                    situation: item.value
+                    situation: item.label
                 })}
             />
             </View>
-            <View style={styles.container}>
+            <View style={styles.situation}>
             <TextInput
                 style={styles.input}
                 placeholder='Enter your situation'
@@ -54,6 +54,8 @@ export default class  RescueScreen extends React.Component{
                 underlineColorAndroid="transparent"
                 autoCapitalize="none"
             />
+            </View>
+            <View style={{ flexDirection:"row" }}>
             <TouchableOpacity
                 style={styles.button}
                 onPress={() => this.props.navigation.navigate('Home')}>
@@ -66,6 +68,7 @@ export default class  RescueScreen extends React.Component{
             <Text> Confirm</Text>
             </TouchableOpacity>
             </View>
+            
         </View>
         )
     }

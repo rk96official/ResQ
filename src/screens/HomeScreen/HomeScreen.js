@@ -9,14 +9,14 @@ export default class HomeScreen extends React.Component{
     render(){
         return (
             <View style={styles.container}>
-                <View>
+                <View style={styles.menu}>
                         <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.openDrawer()}>
-                            <Text>Open Drawer</Text>
+                            <Text style= {styles.men}>Open Menu</Text>
                         </TouchableOpacity>
                 </View>
-                <View>
-                    <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Rescue')}>
-                       <Text> ResQ</Text>
+                <View style={styles.resq}>
+                    <TouchableOpacity style={styles.resqbutton} onPress={() => this.props.navigation.navigate('Rescue')}>
+                       <Text style= {styles.text}> ResQ</Text>
                     </TouchableOpacity>
                 </View>
             </View>

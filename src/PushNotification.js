@@ -23,7 +23,6 @@ import {firebase} from './firebase/config'
    }
 //Get token that uniquely identifies this device
    let token = await Notifications.getExpoPushTokenAsync();
-    console.log(token)
     const uid = user.user.uid
 //    setToken(token)
     firebase.firestore().collection('users').doc(uid).update({

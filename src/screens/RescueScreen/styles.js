@@ -3,11 +3,31 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center'
-    },
+        backgroundColor: 'grey'    },
     title: {
+        color: "#161924",
+        fontSize: 50,
+        fontWeight: "800",
+        marginVertical: 8,
+        justifyContent: 'center',
+        alignSelf: 'center'
+    },
+    rescue: {
         flex: 1,
-        alignItems: 'center'
+        backgroundColor: 'grey',
+        // justifyContent: 'center',
+        textAlign: 'center',
+        alignSelf: 'center',
+        marginTop: 40
+    },
+    situation: {
+        
+        backgroundColor: 'grey',
+        // justifyContent: 'center',
+        textAlign: 'center',
+        alignSelf: 'center',
+        flexDirection:"row"
+       
     },
     logo: {
         flex: 1,
@@ -17,26 +37,35 @@ export default StyleSheet.create({
         margin: 30
     },
     input: {
-        height: 48,
+        flex: 1,
+        flexWrap: 'wrap',
+        height: 100,
+        width: 300,
         borderRadius: 5,
         overflow: 'hidden',
         backgroundColor: 'white',
-        marginTop: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 40,
         marginBottom: 10,
         marginLeft: 30,
         marginRight: 30,
-        paddingLeft: 16
+        paddingLeft: 16,
+        flexShrink: 1
     },
     button: {
         backgroundColor: '#788eec',
         marginLeft: 30,
-        marginRight: 30,
+        marginRight: 85,
         marginTop: 20,
+        marginBottom: 150,
         height: 48,
+        width: 100,
         borderRadius: 5,
         alignItems: "center",
         justifyContent: 'center'
     },
+   
     buttonTitle: {
         color: 'white',
         fontSize: 16,

@@ -3,14 +3,20 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: "#daa520"
     },
-    title: {
-
+    profile:{
+        width: 100,
+        height: 100,
+        borderRadius: 100,
+        borderColor: "#FFF",
+        alignSelf: "center",
+        marginTop: 30
     },
     logo: {
         flex: 1,
-        height: 120,
+        height: 90,
         width: 90,
         alignSelf: "center",
         margin: 30
@@ -19,7 +25,7 @@ export default StyleSheet.create({
         height: 48,
         borderRadius: 5,
         overflow: 'hidden',
-        backgroundColor: 'white',
+        backgroundColor: 'lightgrey',
         marginTop: 10,
         marginBottom: 10,
         marginLeft: 30,

@@ -15,7 +15,7 @@ class  Groups extends React.Component{
         const docRef = firebase.firestore().collection("users").doc(id).onSnapshot(doc => {
                 this.setState({
                     user: {
-                        group: doc.data().group.value
+                        group: doc.data().group
                     }
                 })
         });
@@ -23,15 +23,16 @@ class  Groups extends React.Component{
     render(){
         return (
             <View style={styles.container}>
-            <Text>Groups Screen</Text>
-            <View>
-                <Text> Name: {this.state.user.group}</Text>
-            </View>
-            <TouchableOpacity
-                style={styles.groupsButton}
+                <TouchableOpacity
+                style={styles.button}
                 onPress={() => this.props.navigation.openDrawer()}>
-                <Text>Open Drawer</Text>
+                <Text>Open Menu</Text>
             </TouchableOpacity>
+            <Text style={styles.title}>Groups Screen</Text>
+            <View style={styles.profile}>
+                <Text style={styles.input}> Name: {this.state.user.group}</Text>
+            </View>
+            
       </View>
         )
     }
@@ -40,8 +41,40 @@ class  Groups extends React.Component{
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
+      backgroundColor: "grey"
+    },
+    title:{
+        color: "#161924",
+        fontSize: 50,
+        fontWeight: "800",
+        marginVertical: 8,
+        justifyContent: 'center',
+        alignSelf: 'center'
+    },
+    groups: {
+        flex: 1,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        textAlign: 'center'
+    },
+    input: {
+        height: 48,
+        borderRadius: 5,
+        overflow: 'hidden',
+        backgroundColor: 'lightgrey',
+        marginTop: 20,
+        marginBottom: 10,
+        marginLeft: 30,
+        marginRight: 30,
+        paddingLeft: 16,
+    },
+    button: {
+        height: 60,
+        borderRadius: 5,
+        backgroundColor: '#788eec',
+        width: 150,
+        alignItems: "center",
+        justifyContent: 'center'
     },
     groupsButton: {
         height: 30,
