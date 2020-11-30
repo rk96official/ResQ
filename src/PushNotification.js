@@ -1,11 +1,9 @@
 import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions'
-import React, { useState } from 'react'
 import {firebase} from './firebase/config'
  var data =[]
 
  async function registerForPushNotificationsAsync  (user) {
-
 
    const {status: existingStatus } = await Permissions.getAsync(
      Permissions.NOTIFICATIONS

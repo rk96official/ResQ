@@ -1,8 +1,7 @@
-import React from 'react';
-import { ActivityIndicator, View, Text, StyleSheet } from 'react-native';
-
+import React, {useRef}from 'react';
+import { ActivityIndicator, View, Text, StyleSheet, Alert} from 'react-native';
 import { firebase } from '../firebase/config';
-
+var respond = ''
 export default class Loading extends React.Component {
     componentDidMount() {
         firebase

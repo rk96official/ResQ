@@ -14,6 +14,8 @@ export default function RegistrationScreen({navigation}) {
     const [age, setAge] = useState('')
     const [group, setGroup] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    const [shouldshow] = useState(true)
+
 
     const onFooterLinkPress = () => {
         navigation.navigate('Login')
@@ -80,15 +82,16 @@ export default function RegistrationScreen({navigation}) {
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
-                <DropDownPicker
+                {shouldshow && age>=18? (
+                    <DropDownPicker
                     items={[
                         {label: 'Flooding', value: 0 },
                         {label: 'Fire', value: 1 },
                         {label: 'Accidents', value: 2 },
-                        {label: 'Landslide', value: 3 },
-                        {label: 'Earthquake', value: 4 },
-                        {label: 'Volcano', value: 5 },
-                        {label: 'Hurricane', value: 6 }
+                        {label: 'Car wreck', value: 3 },
+                        {label: 'Stuck in the house', value: 4 },
+                        {label: 'Dog Bite', value: 5 },
+                        {label: 'Stuck in the Elevator', value: 6 }
                     ]}
                     placeholder="Select a voluntary group"
                     containerStyle={{height: 40, width: 250}}
@@ -99,6 +102,8 @@ export default function RegistrationScreen({navigation}) {
                     dropDownStyle={{backgroundColor: '#fafafa'}}
                     onChangeItem={item => setGroup(item.label)}
                 />
+                ):null}
+                
                 <TextInput
                     style={styles.input}
                     placeholder='E-mail'

@@ -12,12 +12,14 @@ firebase.auth().onAuthStateChanged(user => {
          firebase.firestore().collection('users').doc(id).onSnapshot(doc => {
             name= doc.data().fullName 
             var x = name.split(' ')
-            res = x[0].charAt(0) + x[1].charAt(0)
+            res = x[0].charAt(0)
+            var i;
+            for (i = 1; i < x.length; i++) {
+                res += x[i].charAt(0);
+            }  
         })
     }
 })
-
-
 
 export default Sidebar = props =>(
     <ScrollView>

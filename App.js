@@ -5,17 +5,16 @@
  import {Feather} from '@expo/vector-icons'
  import Sidebar from './src/screens/Components/Sidebar'
  import Home from './src/screens/HomeScreen/HomeScreen'
- import React from 'react'
- import { SafeAreaView, StyleSheet } from 'react-native'
+ import * as React from 'react'
+ import { SafeAreaView, StyleSheet, Alert } from 'react-native'
  import { createAppContainer} from 'react-navigation'
- import {createStackNavigator} from 'react-navigation-stack'
  import Login from './src/screens/LoginScreen/LoginScreen'
  import Profile from './src/screens/Profile/Profile'
  import SignOut from './src/screens/SignOut/SignOut'
  import Rescue from './src/screens/RescueScreen/RescueScreen'
+  import MapScreen from './src/screens/MapScreen/MapScreen'
  import SignUp from './src/screens/RegistrationScreen/RegistrationScreen'
  import AuthLoading from './src/screens/Loading'
-
 
 const DrawerNavigator = createDrawerNavigator({
   Home:{
@@ -66,6 +65,7 @@ const switchNavigator = createSwitchNavigator(
     Login,
     SignUp,
     Rescue,
+    MapScreen,
     DrawerNavigator,
   },
   {
@@ -81,6 +81,7 @@ class App extends React.Component {
       <SafeAreaView style={styles.container}>
         <AppNavigator />
       </SafeAreaView>
+      
     )
   }
 }
