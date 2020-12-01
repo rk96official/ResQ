@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react'
-import { Text, SafeAreaView, TouchableOpacity, View, Alert} from 'react-native'
+import React, { useEffect} from 'react'
+import { Text, TouchableOpacity, View, Alert} from 'react-native'
 import styles from './styles';
 import {firebase} from '../../firebase/config'
 import * as Notifications from 'expo-notifications';

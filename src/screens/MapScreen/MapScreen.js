@@ -71,7 +71,7 @@ export default function MapScreen({navigation}){
             </View>
             <View >
             <TouchableOpacity
-                style={styles.button}
+                style={styles.buttons}
                 onPress={() => navigation.navigate('Home')}>
                 <Text>Go Back</Text>
             </TouchableOpacity>
@@ -83,8 +83,7 @@ export default function MapScreen({navigation}){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: "grey"
-
+      backgroundColor: "#376C93"
     },
     title:{
         color: "#161924",
@@ -114,10 +113,22 @@ const styles = StyleSheet.create({
     button: {
         height: 60,
         borderRadius: 5,
+        marginTop: 200,
         backgroundColor: '#788eec',
         width: 150,
         alignItems: "center",
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignSelf: 'center'
+    },
+    buttons: {
+        height: 60,
+        borderRadius: 5,
+        backgroundColor: '#788eec',
+        width: 150,
+        marginTop: 100,
+        alignItems: "center",
+        justifyContent: 'center',
+        alignSelf: 'center'
     },
     profileButton: {
         height: 30,
