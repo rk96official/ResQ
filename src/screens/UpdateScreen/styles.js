@@ -6,6 +6,10 @@ export default StyleSheet.create({
         alignItems: 'center',
         backgroundColor: "#376c93"
     },
+    contain: {
+        flex: 1,
+        marginTop: 110
+    },
     profile:{
         width: 100,
         height: 100,
@@ -13,6 +17,15 @@ export default StyleSheet.create({
         borderColor: "#FFF",
         alignSelf: "center",
         marginTop: 30
+    },
+    title: {
+        color: "#ffffff",
+        fontSize: 50,
+        marginTop: 50,
+        fontWeight: "800",
+        marginVertical: 8,
+        justifyContent: 'center',
+        alignSelf: 'center'
     },
     logo: {
         flex: 1,
@@ -35,9 +48,11 @@ export default StyleSheet.create({
     button: {
         backgroundColor: '#788eec',
         marginLeft: 30,
-        marginRight: 30,
-        marginTop: 20,
+        marginRight: 120,
+        marginTop: 50,
+        marginBottom: 20,
         height: 48,
+        width: 100,
         borderRadius: 5,
         alignItems: "center",
         justifyContent: 'center'

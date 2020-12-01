@@ -10,9 +10,12 @@
  import { createAppContainer} from 'react-navigation'
  import Login from './src/screens/LoginScreen/LoginScreen'
  import Profile from './src/screens/Profile/Profile'
+ import UpdateScreen from './src/screens/UpdateScreen/UpdateScreen'
  import SignOut from './src/screens/SignOut/SignOut'
  import Rescue from './src/screens/RescueScreen/RescueScreen'
-  import MapScreen from './src/screens/MapScreen/MapScreen'
+ import MapScreen from './src/screens/MapScreen/MapScreen'
+ import VictimScreen from './src/screens/VictimScreen/VictimScreen'
+ import SurveyScreen from './src/screens/SurveyScreen/SurveyScreen'
  import SignUp from './src/screens/RegistrationScreen/RegistrationScreen'
  import AuthLoading from './src/screens/Loading'
 
@@ -66,6 +69,9 @@ const switchNavigator = createSwitchNavigator(
     SignUp,
     Rescue,
     MapScreen,
+    UpdateScreen,
+    VictimScreen,
+    SurveyScreen,
     DrawerNavigator,
   },
   {

@@ -3,8 +3,12 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "grey"
+        // backgroundColor: '#ff99cc'
+        
+        backgroundColor: '#376C93'
+        // 26699A
     },
+    
     resq: {
         flex: 1,
         alignSelf: 'center',
@@ -24,7 +28,9 @@ export default StyleSheet.create({
     men: {
         color: "black",
         fontFamily: 'Times New Roman',
-        fontSize: 30,
+        fontSize: 35,
+        lineHeight: 10,
+        fontWeight: "bold"
     },
     resqbutton: {
         padding: 5,
@@ -36,10 +42,10 @@ export default StyleSheet.create({
         justifyContent: 'center',
     },
     button: {
-        height: 60,
+        height: 80,
         borderRadius: 5,
-        backgroundColor: '#788eec',
-        width: 150,
+        // backgroundColor: '#788eec',
+        width: 50,
         alignItems: "center",
         justifyContent: 'center'
     },

@@ -12,7 +12,6 @@ export default function MapScreen({navigation}){
     var finallongitude = navigation.getParam('longitude')
     finallatitude = parseFloat(finallatitude)
     finallongitude = parseFloat(finallongitude)
-    console.log('To',finallatitude, finallongitude)
 
     useEffect(() => {
         (async () => {
@@ -38,7 +37,6 @@ export default function MapScreen({navigation}){
     currentLatitude = parseFloat(currentLatitude)
     currentLongitude = parseFloat(currentLongitude)
 
-    console.log('From', currentLatitude,currentLongitude )
     handleGetDirections = () => {
         const data = {
            source: {

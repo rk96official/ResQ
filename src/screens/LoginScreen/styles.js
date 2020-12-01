@@ -4,7 +4,7 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: "#daa520"
+        backgroundColor: "#376c93"
     },
     profile:{
         width: 200,

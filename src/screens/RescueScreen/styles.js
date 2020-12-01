@@ -3,7 +3,8 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'grey'    },
+        backgroundColor: '#376C93'    
+    },
     title: {
         color: "#161924",
         fontSize: 50,
@@ -14,20 +15,17 @@ export default StyleSheet.create({
     },
     rescue: {
         flex: 1,
-        backgroundColor: 'grey',
-        // justifyContent: 'center',
+        backgroundColor: '#376C93',
         textAlign: 'center',
         alignSelf: 'center',
-        marginTop: 40
+        marginTop: 20,
+        marginBottom: -200
     },
     situation: {
-        
-        backgroundColor: 'grey',
-        // justifyContent: 'center',
-        textAlign: 'center',
-        alignSelf: 'center',
-        flexDirection:"row"
-       
+        flex: 1,
+        backgroundColor: '#376C93',
+        marginTop: 20,
+
     },
     logo: {
         flex: 1,
@@ -36,29 +34,32 @@ export default StyleSheet.create({
         alignSelf: "center",
         margin: 30
     },
+    valueText: {
+        fontSize: 18, 
+        justifyContent: 'center',
+        alignSelf: 'center'
+    },
+    view: {
+        height: 50
+    },
     input: {
-        flex: 1,
         flexWrap: 'wrap',
-        height: 100,
-        width: 300,
+        marginTop: 30,
+        height: 80,
+        width: 350,
         borderRadius: 5,
         overflow: 'hidden',
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 40,
-        marginBottom: 10,
-        marginLeft: 30,
-        marginRight: 30,
-        paddingLeft: 16,
-        flexShrink: 1
+        alignSelf: 'center'
     },
     button: {
         backgroundColor: '#788eec',
         marginLeft: 30,
-        marginRight: 85,
-        marginTop: 20,
-        marginBottom: 150,
+        marginRight: 120,
+        marginTop: 50,
+        marginBottom: 20,
         height: 48,
         width: 100,
         borderRadius: 5,

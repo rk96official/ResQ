@@ -10,7 +10,7 @@ export default StyleSheet.create({
         height: 80,
         fontSize: 40,
         justifyContent:'center',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         borderRadius: 40,
         borderWidth: 3,
         borderColor: "grey",

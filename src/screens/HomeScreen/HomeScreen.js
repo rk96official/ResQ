@@ -5,10 +5,10 @@ import {firebase} from '../../firebase/config'
 import * as Notifications from 'expo-notifications';
 
 export default function HomeScreen({navigation}) {
-    useEffect(() => {
+    useEffect( () => {
         firebase
         .auth()
-        .onAuthStateChanged(user => {
+        .onAuthStateChanged(async user => {
             respond = Notifications.addNotificationResponseReceivedListener((response) => {
               var title = response.notification.request.content.data.aps.alert.title;
               var body = response.notification.request.content.data.aps.alert.body;
@@ -16,16 +16,18 @@ export default function HomeScreen({navigation}) {
               var loc = message.data.split(",");
               var latitude = loc[0]
               var longitude = loc[1]
+              var condition = loc[2]
               Alert.alert(
                 title,
-                message.data,
+                condition,
                 [
                   {
-                    text: "Cancel",
+                    text: "Decline",
                     onPress: () => alert("Request Denied"),
                     style: "cancel"
                   },
-                  { text: "OK", onPress: () => navigation.navigate('MapScreen', {latitude: latitude, longitude: longitude})
+                  { text: "Accept", onPress: () => 
+                  navigation.navigate('MapScreen', {latitude: latitude, longitude: longitude})
                  }
                 ],
                 { cancelable: false }
@@ -42,7 +44,7 @@ export default function HomeScreen({navigation}) {
         <View style={styles.container}>
             <View style={styles.menu}>
                     <TouchableOpacity style={styles.button} onPress={() => navigation.openDrawer()}>
-                        <Text style= {styles.men}>Open Menu</Text>
+                        <Text style= {styles.men}>__{"\n"}__{"\n"}__</Text>
                     </TouchableOpacity>
             </View>
             <View style={styles.resq}>

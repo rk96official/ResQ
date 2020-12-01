@@ -29,11 +29,13 @@ class  Profile extends React.Component{
     render(){
         return (
             <View style={styles.container}>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => this.props.navigation.openDrawer()}>
-                    <Text>Open Menu</Text>
-                </TouchableOpacity>
+                <View style={styles.menu}>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => this.props.navigation.openDrawer()}>
+                        <Text style = {styles.men}>__{"\n"}__{"\n"}__</Text>
+                    </TouchableOpacity>
+                </View>
                 <Text style={styles.title}>Profile Screen</Text>
                 <View style={styles.profile}>
                     <View >
@@ -43,6 +45,12 @@ class  Profile extends React.Component{
                             <Text style={styles.input}> Groups: {this.state.user.groups}</Text>
                     </View>
                 </View>
+                
+                    <TouchableOpacity
+                        style={styles.buttons}
+                        onPress={() => this.props.navigation.navigate('UpdateScreen')}>
+                        <Text>Update Profile</Text>
+                    </TouchableOpacity>
             
             </View>
         )
@@ -52,21 +60,33 @@ class  Profile extends React.Component{
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: "grey"
+      backgroundColor: '#376C93'
 
     },
+    menu: {
+        justifyContent: 'center',
+        textAlign: 'center',
+    },
+    men: {
+        color: "black",
+        fontFamily: 'Times New Roman',
+        fontSize: 25,
+        lineHeight: 10,
+        fontWeight: "bold"
+    },
     title:{
-        color: "#161924",
-        fontSize: 50,
+        color: "#ffffff",
+        fontSize: 40,
         fontWeight: "800",
         marginVertical: 8,
         justifyContent: 'center',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        marginBottom: 50
     },
     profile: {
         flex: 1,
-        alignSelf: 'center',
-        justifyContent: 'center',
+        alignSelf: 'flex-start',
+        justifyContent: "flex-start",
         textAlign: 'center'
     },
     input: {
@@ -79,14 +99,34 @@ const styles = StyleSheet.create({
         marginLeft: 30,
         marginRight: 30,
         paddingLeft: 16,
+        backgroundColor: '#376C93',
+        fontSize: 20
     },
     button: {
-        height: 60,
+        height: 80,
         borderRadius: 5,
-        backgroundColor: '#788eec',
-        width: 150,
+        width: 50,
         alignItems: "center",
         justifyContent: 'center'
+    },
+    buttons: {
+        backgroundColor: '#788eec',
+        marginLeft: 30,
+        marginRight: 30,
+        marginTop: 20,
+        marginBottom: 100,
+        height: 48,
+        width: 150,
+        borderRadius: 5,
+        alignSelf: "center",
+        justifyContent: 'center',
+        alignItems: "center",
+
+    },
+    buttonTitle: {
+        color: 'white',
+        fontSize: 16,
+        fontWeight: "bold"
     },
     profileButton: {
         height: 30,
